@@ -71,7 +71,7 @@ window.addEventListener("scroll", () => {
 
 
 // ✅ Scroll to Top Button (auto create)
-const scrollBtn = document.createElement("button");
+/*const scrollBtn = document.createElement("button");
 scrollBtn.innerText = "↑";
 scrollBtn.classList.add("scroll-top");
 document.body.appendChild(scrollBtn);
@@ -86,4 +86,4 @@ window.addEventListener("scroll", () => {
   } else {
     scrollBtn.style.display = "none";
   }
-});
+});*/
