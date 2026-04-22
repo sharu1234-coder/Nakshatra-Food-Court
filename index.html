@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nakshatra Food Court | Chinese & Indian · Boduppal, Hyderabad</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --g:#0e2a1a;--g2:#0a1f13;--g3:#122a1a;
+  --gold:#D4AC0D;--gold2:#f0c830;--gold3:#a07c00;
+  --cream:#f8f3e3;--cream2:#ede5c8;
+  --text:#f0ead6;--text2:#c8bfa0;--text3:#8a7e5e;
+  --red:#8b0000;--red2:#a50000;
+  --green:#1a5c2a;--vg:#27ae60;--nvg:#e74c3c;--eg:#e67e22;
+  --border:rgba(212,172,13,0.2);--borderH:rgba(212,172,13,0.55);
+  --r:12px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--g2);color:var(--text);overflow-x:hidden}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+::-webkit-scrollbar-track{background:var(--g2)}
+
+/* ===== KEYFRAMES ===== */
+@keyframes starTwinkle{0%,100%{opacity:.15;transform:scale(1)}50%{opacity:.7;transform:scale(1.4)}}
+@keyframes goldShimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes floatUp{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes spinSlow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes pulseRing{0%,100%{box-shadow:0 0 0 0 rgba(212,172,13,.6)}50%{box-shadow:0 0 0 12px rgba(212,172,13,0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:none}}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes borderPulse{0%,100%{border-color:rgba(212,172,13,.18)}60%{border-color:rgba(212,172,13,.5)}}
+@keyframes slideInLeft{from{opacity:0;transform:translateX(-50px)}to{opacity:1;transform:none}}
+@keyframes slideInRight{from{opacity:0;transform:translateX(50px)}to{opacity:1;transform:none}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+@keyframes orbitStar{from{transform:rotate(0deg) translateX(120px) rotate(0deg)}to{transform:rotate(360deg) translateX(120px) rotate(-360deg)}}
+
+/* ===== REVEAL ===== */
+.rv{opacity:0;transform:translateY(32px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.rv.in{opacity:1;transform:none}
+.rv-l{opacity:0;transform:translateX(-46px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.rv-l.in{opacity:1;transform:none}
+.rv-r{opacity:0;transform:translateX(46px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.rv-r.in{opacity:1;transform:none}
+.rv-s{opacity:0;transform:scale(.88);transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1)}
+.rv-s.in{opacity:1;transform:scale(1)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}.d6{transition-delay:.6s}
+
+/* ===== TICKER ===== */
+.ticker{background:var(--gold3);overflow:hidden;padding:.5rem 0;white-space:nowrap;border-bottom:1px solid rgba(212,172,13,.35)}
+.ticker-t{display:inline-flex;gap:4rem;animation:marquee 22s linear infinite}
+.ticker-t span{font-size:.77rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--cream)}
+.ticker-t span::before{content:'✦ ';color:var(--gold2)}
+
+/* ===== NAV ===== */
+nav{
+  position:sticky;top:0;z-index:400;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.9rem 3rem;
+  background:rgba(10,31,19,.97);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  transition:all .3s;
+}
+nav.scrolled{padding:.65rem 3rem;border-bottom-color:var(--borderH);box-shadow:0 4px 30px rgba(0,0,0,.4)}
+.logo-area{display:flex;align-items:center;gap:.85rem}
+.n-badge{
+  width:46px;height:46px;border-radius:50%;
+  border:2px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cinzel',serif;font-size:1.3rem;font-weight:900;color:var(--gold);
+  position:relative;flex-shrink:0;
+  animation:pulseRing 3s ease-in-out infinite;
+}
+.n-badge::before{
+  content:'';position:absolute;inset:-6px;border-radius:50%;
+  border:1px dashed rgba(212,172,13,.35);
+  animation:spinSlow 12s linear infinite;
+}
+.logo-txt{font-family:'Cinzel',serif;font-size:1.3rem;font-weight:700;color:var(--cream);line-height:1}
+.logo-txt span{display:block;font-family:'Inter',sans-serif;font-size:.65rem;font-weight:500;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-top:3px}
+.nav-ul{display:flex;gap:2rem;list-style:none}
+.nav-ul a{color:var(--text2);text-decoration:none;font-size:.85rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;transition:color .2s;position:relative;padding-bottom:4px}
+.nav-ul a::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1.5px;background:var(--gold);transform:scaleX(0);transform-origin:center;transition:transform .3s}
+.nav-ul a:hover{color:var(--gold2)}
+.nav-ul a:hover::after{transform:scaleX(1)}
+.btn-order{
+  background:var(--gold);color:var(--g2);
+  padding:.52rem 1.35rem;border-radius:8px;
+  font-weight:800;font-size:.82rem;text-decoration:none;
+  letter-spacing:.3px;transition:all .25s;white-space:nowrap;
+}
+.btn-order:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 6px 20px rgba(212,172,13,.4)}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hbg span{display:block;width:22px;height:2px;background:var(--cream);border-radius:2px;transition:all .35s}
+.hbg.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hbg.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hbg.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mob-menu{
+  position:fixed;inset:0;z-index:390;
+  background:var(--g2);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;
+  transform:translateX(100%);transition:transform .4s cubic-bezier(.16,1,.3,1);
+}
+.mob-menu.open{transform:none}
+.mob-menu a{font-family:'Cinzel',serif;font-size:2rem;color:var(--cream);text-decoration:none;letter-spacing:3px;transition:color .2s}
+.mob-menu a:hover{color:var(--gold2)}
+.mob-cta{
+  background:var(--gold)!important;color:var(--g2)!important;
+  padding:.8rem 2.5rem;border-radius:10px;
+  font-family:'Inter',sans-serif!important;font-size:1rem!important;font-weight:800;
+}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:6rem 1.5rem 4rem;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 40%,rgba(212,172,13,.09) 0%,transparent 65%),
+    radial-gradient(ellipse 35% 30% at 15% 85%,rgba(26,92,42,.2) 0%,transparent 55%),
+    radial-gradient(ellipse 30% 30% at 85% 85%,rgba(26,92,42,.2) 0%,transparent 55%),
+    var(--g2);
+}
+/* Stars */
+.stars{position:absolute;inset:0;pointer-events:none}
+.star{
+  position:absolute;background:var(--gold2);border-radius:50%;
+  animation:starTwinkle 3s ease-in-out infinite;
+}
+.hero-ornament{
+  width:220px;height:220px;border-radius:50%;
+  border:1px solid var(--border);
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  pointer-events:none;
+}
+.hero-ornament::before{
+  content:'';position:absolute;inset:18px;border-radius:50%;
+  border:1px dashed rgba(212,172,13,.2);
+  animation:spinSlow 25s linear infinite;
+}
+.hero-content{position:relative;z-index:2}
+.hero-label{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(212,172,13,.1);border:1px solid rgba(212,172,13,.35);
+  color:var(--gold2);font-size:.72rem;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase;
+  padding:.35rem 1.1rem;border-radius:100px;margin-bottom:1.5rem;
+}
+.live-dot{width:7px;height:7px;border-radius:50%;background:#27ae60;animation:starTwinkle 1.5s infinite}
+.hero-telugu{
+  font-size:1.1rem;color:var(--text3);letter-spacing:2px;
+  margin-bottom:.5rem;font-style:italic;
+}
+.hero h1{
+  font-family:'Cinzel',serif;
+  font-size:clamp(2.8rem,10vw,8rem);
+  font-weight:900;letter-spacing:6px;line-height:.95;
+  background:linear-gradient(135deg,var(--cream) 0%,var(--gold2) 40%,var(--cream) 70%,var(--gold) 100%);
+  background-size:250% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:goldShimmer 5s linear infinite;
+  margin-bottom:.75rem;
+}
+.hero-sub{
+  font-size:clamp(.85rem,2.5vw,1.1rem);font-weight:500;
+  color:var(--text2);letter-spacing:4px;text-transform:uppercase;
+  margin-bottom:2rem;
+}
+.hero-sub span{color:var(--gold)}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3.5rem}
+.btn-gold{
+  background:var(--gold);color:var(--g2);
+  padding:.9rem 2.25rem;border-radius:10px;
+  font-weight:800;font-size:.93rem;text-decoration:none;
+  transition:all .25s;display:inline-block;letter-spacing:.3px;
+}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-3px);box-shadow:0 12px 30px rgba(212,172,13,.4)}
+.btn-outline{
+  border:1.5px solid var(--border);color:var(--gold2);
+  padding:.9rem 2.25rem;border-radius:10px;
+  font-weight:700;font-size:.93rem;text-decoration:none;
+  transition:all .25s;display:inline-block;
+}
+.btn-outline:hover{border-color:var(--gold2);background:rgba(212,172,13,.08);transform:translateY(-3px)}
+.hero-stats{
+  display:flex;gap:3rem;justify-content:center;flex-wrap:wrap;
+  border-top:1px solid var(--border);padding-top:2.5rem;
+}
+.s-num{font-family:'Cinzel',serif;font-size:2.2rem;font-weight:700;color:var(--gold2);line-height:1}
+.s-lbl{font-size:.68rem;color:var(--text3);text-transform:uppercase;letter-spacing:2px;font-weight:600;margin-top:4px}
+
+/* ===== PARTY BANNER ===== */
+.party-banner{
+  background:linear-gradient(135deg,var(--red),var(--red2),#6b0000);
+  padding:2rem 3rem;text-align:center;
+  border-top:1px solid rgba(212,172,13,.2);
+  border-bottom:1px solid rgba(212,172,13,.2);
+  position:relative;overflow:hidden;
+}
+.party-banner::before{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(-45deg,transparent,transparent 12px,rgba(0,0,0,.06) 12px,rgba(0,0,0,.06) 24px);
+}
+.party-inner{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap}
+.party-badge{background:var(--gold);color:var(--g2);font-family:'Cinzel',serif;font-size:1rem;font-weight:700;padding:.4rem 1.25rem;border-radius:100px;letter-spacing:2px;animation:pulseRing 2.5s infinite}
+.party-title{font-family:'Cinzel',serif;font-size:clamp(1.2rem,3vw,2rem);letter-spacing:3px;color:#fff}
+.party-contact{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center}
+.p-phone{
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);
+  color:#fff;padding:.45rem 1.1rem;border-radius:8px;
+  font-size:.85rem;font-weight:700;text-decoration:none;letter-spacing:.5px;
+  transition:all .2s;
+}
+.p-phone:hover{background:var(--gold);color:var(--g2)}
+
+/* ===== SECTION ===== */
+section{padding:5.5rem 3rem}
+.container{max-width:1140px;margin:0 auto}
+.s-lbl{font-size:.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:.6rem}
+.s-title{
+  font-family:'Cinzel',serif;
+  font-size:clamp(1.8rem,4.5vw,3.2rem);
+  font-weight:700;letter-spacing:2px;line-height:1.1;margin-bottom:.8rem;
+  color:var(--cream);
+}
+.s-title em{color:var(--gold2);font-style:normal}
+.s-desc{color:var(--text2);font-size:.92rem;line-height:1.8;max-width:500px}
+.divider{
+  display:flex;align-items:center;gap:1rem;margin:1.5rem 0;
+}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border)}
+.divider span{font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);letter-spacing:3px;text-transform:uppercase;white-space:nowrap}
+
+/* ===== MENU ===== */
+#menu{background:var(--g)}
+.tab-scroll{overflow-x:auto;padding-bottom:4px;margin-top:2rem}
+.tabs{
+  display:flex;gap:.4rem;width:max-content;
+  background:var(--g2);border:1px solid var(--border);
+  border-radius:12px;padding:.4rem;
+}
+.tab{
+  background:none;border:none;cursor:pointer;
+  font-family:'Inter',sans-serif;font-size:.82rem;font-weight:700;
+  color:var(--text3);padding:.52rem 1.2rem;border-radius:8px;
+  transition:all .25s;white-space:nowrap;letter-spacing:.3px;
+}
+.tab.on,.tab:hover{background:var(--gold);color:var(--g2)}
+.panel{display:none}
+.panel.on{display:block}
+.cat-title{
+  font-family:'Cinzel',serif;font-size:1.3rem;font-weight:700;
+  color:var(--gold2);letter-spacing:2px;
+  border-left:3px solid var(--gold3);padding-left:.8rem;
+  margin:2.25rem 0 1rem;
+}
+.cat-title:first-child{margin-top:.5rem}
+.note{font-size:.75rem;color:var(--text3);font-weight:600;margin-bottom:1rem;letter-spacing:.5px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:.75rem}
+.card{
+  background:var(--g2);border:1px solid var(--border);
+  border-radius:var(--r);padding:.95rem 1.15rem;
+  display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem;
+  transition:border-color .25s,transform .25s,box-shadow .25s;
+  animation:borderPulse 5s ease-in-out infinite;
+}
+.card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 8px 24px rgba(212,172,13,.12);animation:none}
+.card-l{display:flex;gap:9px;align-items:flex-start;flex:1}
+.dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:3px}
+.dv{background:var(--vg);box-shadow:0 0 0 2px rgba(39,174,96,.2)}
+.dnv{background:var(--nvg);box-shadow:0 0 0 2px rgba(231,76,60,.2)}
+.de{background:var(--eg);box-shadow:0 0 0 2px rgba(230,126,18,.2)}
+.card-name{font-size:.88rem;font-weight:600;color:var(--text);line-height:1.3}
+.card-sub{font-size:.72rem;color:var(--text3);margin-top:2px}
+.price-box{text-align:right;white-space:nowrap}
+.price{font-family:'Cinzel',serif;font-size:1.05rem;color:var(--gold2);line-height:1}
+.price-sm{font-size:.7rem;color:var(--text3);margin-top:2px}
+.special-card{
+  background:linear-gradient(135deg,rgba(26,92,42,.5),rgba(10,31,19,.8));
+  border:1px solid rgba(212,172,13,.4);
+  border-radius:var(--r);padding:1.25rem 1.5rem;
+  margin-top:1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+}
+.sc-label{font-size:.7rem;color:var(--gold);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:.25rem}
+.sc-title{font-family:'Cinzel',serif;font-size:1.25rem;font-weight:700;color:var(--cream);letter-spacing:1px}
+.sc-price{font-family:'Cinzel',serif;font-size:2.5rem;color:var(--gold2);line-height:1;letter-spacing:2px}
+
+/* ===== FEATURES ===== */
+#about{background:var(--g2)}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1.25rem;margin-top:2.5rem}
+.feat{
+  background:var(--g);border:1px solid var(--border);
+  border-radius:var(--r);padding:1.6rem;
+  position:relative;overflow:hidden;
+  transition:border-color .25s,transform .25s;
+}
+.feat::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--gold3),var(--gold2),var(--gold3));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .4s ease;
+}
+.feat:hover{border-color:var(--gold);transform:translateY(-4px)}
+.feat:hover::after{transform:scaleX(1)}
+.feat-icon{font-size:1.9rem;margin-bottom:.85rem}
+.feat-name{font-family:'Cinzel',serif;font-size:1.05rem;font-weight:700;color:var(--gold2);margin-bottom:.4rem;letter-spacing:1px}
+.feat-text{font-size:.82rem;color:var(--text2);line-height:1.65}
+
+/* ===== CONTACT ===== */
+#contact{background:var(--g)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;margin-top:2.5rem}
+.ci{margin-bottom:1.35rem}
+.ci-lbl{font-size:.68rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:.35rem}
+.ci-val{font-size:.95rem;color:var(--text);font-weight:500;line-height:1.6}
+.ci-val a{color:var(--text);text-decoration:none;transition:color .2s}
+.ci-val a:hover{color:var(--gold2)}
+.map-box{background:var(--g2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;height:330px}
+.map-box iframe{width:100%;height:100%;border:none}
+
+/* ===== FOOTER ===== */
+footer{
+  background:var(--g2);border-top:1px solid var(--border);
+  padding:2.5rem 3rem;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+}
+.foot-brand{font-family:'Cinzel',serif;font-size:1.3rem;font-weight:700;color:var(--gold2);letter-spacing:2px}
+.foot-brand small{display:block;font-family:'Inter',sans-serif;font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--text3);font-weight:500;margin-top:3px}
+.foot-links{display:flex;gap:1.5rem}
+.foot-links a{font-size:.78rem;color:var(--text3);text-decoration:none;font-weight:600;letter-spacing:.5px;transition:color .2s}
+.foot-links a:hover{color:var(--gold)}
+.foot-copy{font-size:.75rem;color:var(--text3)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  nav{padding:.85rem 1.25rem}
+  .nav-ul{display:none}
+  .hbg{display:flex}
+  section{padding:4rem 1.25rem}
+  .contact-grid{grid-template-columns:1fr}
+  footer{flex-direction:column;text-align:center;padding:2rem 1.25rem}
+  .foot-links{justify-content:center}
+  .party-banner{padding:1.5rem 1.25rem}
+}
+@media(max-width:500px){
+  .hero-btns{flex-direction:column;align-items:center}
+  .btn-gold,.btn-outline{width:100%;max-width:280px;text-align:center}
+  .hero-stats{gap:1.5rem}
+  .s-num{font-size:1.8rem}
+  .grid{grid-template-columns:1fr}
+  .feat-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:360px){.feat-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-t">
+    <span>Party Orders Available</span>
+    <span>Contact 8522027670 / 9700937006</span>
+    <span>Open Until 11 PM Daily</span>
+    <span>Dine-In · Takeaway · Delivery</span>
+    <span>Order on Swiggy</span>
+    <span>Boduppal, Hyderabad</span>
+    <span>4.3★ Google Rating</span>
+    <span>Party Orders Available</span>
+    <span>Contact 8522027670 / 9700937006</span>
+    <span>Open Until 11 PM Daily</span>
+    <span>Dine-In · Takeaway · Delivery</span>
+    <span>Order on Swiggy</span>
+    <span>Boduppal, Hyderabad</span>
+    <span>4.3★ Google Rating</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="logo-area">
+    <div class="n-badge">N</div>
+    <div class="logo-txt">Nakshatra<span>Food Court · Boduppal</span></div>
+  </div>
+  <ul class="nav-ul">
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="tel:09700937006" class="btn-order">📞 Order Now</a>
+  <div class="hbg" id="hbg" onclick="toggleMob()"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <a href="#menu" onclick="toggleMob()">Menu</a>
+  <a href="#about" onclick="toggleMob()">About</a>
+  <a href="#contact" onclick="toggleMob()">Contact</a>
+  <a href="tel:09700937006" class="mob-cta" onclick="toggleMob()">📞 097009 37006</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="stars" id="stars"></div>
+
+  <div class="hero-content">
+    <div class="hero-label"><span class="live-dot"></span>Open · Closes 11 PM · Boduppal</div>
+    <p class="hero-telugu">నక్షత్ర ఫుడ్ కోర్ట్</p>
+    <h1>Nakshatra<br>Food Court</h1>
+    <p class="hero-sub">Rice · Noodles · <span>Biryani</span> · Starters</p>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-gold">✦ Explore Menu</a>
+      <a href="tel:09700937006" class="btn-outline">📞 097009 37006</a>
+    </div>
+    <div class="hero-stats">
+      <div class="rv d1"><div class="s-num">4.3★</div><div class="s-lbl">Google Rating</div></div>
+      <div class="rv d2"><div class="s-num">339</div><div class="s-lbl">Reviews</div></div>
+      <div class="rv d3"><div class="s-num">₹40</div><div class="s-lbl">Starts From</div></div>
+      <div class="rv d4"><div class="s-num">11 PM</div><div class="s-lbl">Open Until</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTY BANNER -->
+<div class="party-banner rv">
+  <div class="party-inner">
+    <div class="party-badge">🎉 Party Orders</div>
+    <div class="party-title">We Undertake All Party Orders</div>
+    <div class="party-contact">
+      <a href="tel:08522027670" class="p-phone">📞 8522027670</a>
+      <a href="tel:09700937006" class="p-phone">📞 9700937006</a>
+    </div>
+  </div>
+</div>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="container">
+    <p class="s-lbl rv">Our Full Menu</p>
+    <h2 class="s-title rv">A Feast of <em>Flavours</em></h2>
+    <p class="s-desc rv">Fresh rice dishes, smoky biryani, sizzling starters and more — made to order every time.</p>
+
+    <div class="tab-scroll rv">
+      <div class="tabs">
+        <button class="tab on" onclick="showTab('rice',this)">🍚 Rice Items</button>
+        <button class="tab" onclick="showTab('noodles',this)">🍜 Noodles</button>
+        <button class="tab" onclick="showTab('starters',this)">🔥 Starters</button>
+        <button class="tab" onclick="showTab('biryani',this)">🫕 Biryani</button>
+      </div>
+    </div>
+
+    <!-- RICE -->
+    <div class="panel on" id="panel-rice">
+      <div class="note" style="margin-top:1.25rem">Prices shown as Single / Full</div>
+      <div class="grid">
+        <div class="card rv d1"><div class="card-l"><span class="dot dv"></span><div><div class="card-name">Veg Rice</div></div></div><div class="price-box"><div class="price">₹70 / 130</div></div></div>
+        <div class="card rv d2"><div class="card-l"><span class="dot dv"></span><div><div class="card-name">Zeera Rice</div></div></div><div class="price-box"><div class="price">₹80 / 130</div></div></div>
+        <div class="card rv d3"><div class="card-l"><span class="dot dv"></span><div><div class="card-name">Paneer Rice</div></div></div><div class="price-box"><div class="price">₹100 / 180</div></div></div>
+        <div class="card rv d4"><div class="card-l"><span class="dot dv"></span><div><div class="card-name">Veg Manchurian Rice</div></div></div><div class="price-box"><div class="price">₹80 / 140</div></div></div>
+        <div class="card rv d1"><div class="card-l"><span class="dot de"></span><div><div class="card-name">Egg Rice</div></div></div><div class="price-box"><div class="price">₹80 / 140</div></div></div>
+        <div class="card rv d2"><div class="card-l"><span class="dot de"></span><div><div class="card-name">Double Egg Rice</div></div></div><div class="price-box"><div class="price">₹90 / 150</div></div></div>
+        <div class="card rv d3"><div class="card-l"><span class="dot dnv"></span><div><div class="card-name">Chicken Fried Rice</div></div></div><div class="price-box"><div class="price">₹100 / 170</div></div></div>
+        <div class="card rv d4"><div class="card-l"><span class="dot dnv"></span><div><div class="card-name">Schezwan Chi. Rice</div></div></div><div class="price-box"><div class="price">₹110 / 190</div></div></div>
+        <div class="card rv d1"><div class="card-l"><span class="dot dnv"></span><div><div class="card-name">Dou. Egg Chi. Rice</div></div></div><div class="price-box"><div class="price">₹110 / 200</div></div></div>
+        <div class="card rv d2"><div class="card-l"><span class="dot dnv"></span><div><div class="card-name">Dou. Egg Dou. Chi. Rice</div></div></div><div class="price-box"><div class="price">₹170 / 210</div></div></div>
+      </div>
+    </div>
+
+    <!-- NOODLES -->
+    <div class="panel" id="panel-noodles">
+      <div class="note" style="margin-top:1.25rem">Prices shown as Single / Full</div>
+      <div class="grid">
+        <div class="card"><div class="card-l"><span class="dot dv"></span><div><div class="card-name">Veg Noodles</div></div></div><div class="price-box"><div class="price">₹70 / 130</div></div></div>
+        <div class="card"><div class="card-l"><span class="dot dv"></span><div><div class="card-name">Veg. Manchurian Noodles</div></div></div><div class="price-box"><div class="price">₹80 / 140</div></div></div>
+        <div class="card"><div class="card-l"><span class="dot dv"></span><div><div class="card-name">Veg. Schezwan Noodles</div></div></div><div class="price-box"><div class="price">₹80 / 140</div></div></div>
+        <div class="card"><div class="card-l"><span class="dot de"></span><div><div class="card-name">Egg Noodles</div></div></div><div class="price-box"><div class="price">₹80 / 140</div></div></div>
+        <div class="card"><div class="card-l"><span class="dot de"></span><div><div class="card-name">Double Egg Noodles</div></div></div><div class="price-box"><div class="price">₹90 / 150</div></div></div>
+        <div class="card"><div class="card-l"><span class="dot dnv"></span><div><div class="card-name">Chicken Noodles</div></div></div><div class="price-box"><div class="price">₹100 / 170</div></div></div>
+        <div class="card"><div class="card-l"><span class="dot dnv"></span><div><div class="card-name">Schezwan Chi. Noodles</div></div></div><div class="price-box"><div class="price">₹110 / 190</div></div></div>
+        <div class="card"><div class="card-l"><span class="dot dnv"></span><div><div class="card-name">Double Egg Chi. Noodles</div></div></div><div class="price-box"><div class="price">₹110 / 200</div></div></div>
+        <div class="card"><div class="card-l"><span class="dot dnv"></span><div><div class="card-name">Dou. Egg Dou. Chic. Noodles</div></div></div><div class="price-box"><div class="price">₹120 / 210</div></div></div>
+      </div>
+    </div>
+
+    <!-- STARTERS -->
+    <div class="panel" id="panel-starters">
+      <div class="cat-title">Veg Starters</div>
+      <div class="note">Prices shown as Single / Full</div>
+      <div class="grid">
+        <div class="card"><div class="card-l"><span class="dot dv"></span><div><div class="card-name">Veg Manchurian</div></div></div><div class="price-box"><div class="price">₹90 / 150</div></div></div>
+        <div class="card"><div class="card-l"><span class="dot dv"></span><div><div class="card-name">Veg 65</div></div></div><div class="price-box"><div class="price">₹100 / 160</div></div></div>
+        <div class="card"><div class="card-l"><span class="dot dv"></span><div><div class="card-name">Veg Chilly</div></div></div><div class="price-box"><div class="price">₹100 / 160</div></div></div>
+        <div class="card"><div class="card-l"><span class="dot dv"></span><div><div class="card-name">Paneer 65</div></div></div><div class="price-box"><div class="price">₹200</div></div></div>
+      </div>
+      <div class="cat-title">Chicken Starters</div>
+      <div class="note">Prices shown as Single / Full</div>
+      <div class="grid">
+        <div class="card"><div class="card-l"><span class="dot dnv"></span><div><div class="card-name">Chicken Manchurian</div></div></div><div class="price-box"><div class="price">₹130 / 210</div></div></div>
+        <div class="card"><div class="card-l"><span class="dot dnv"></span><div><div class="card-name">Chicken 65</div></div></div><div class="price-box"><div class="price">₹130 / 220</div></div></div>
+        <div class="card"><div class="card-l"><span class="dot dnv"></span><div><div class="card-name">Chilly Chicken</div></div></div><div class="price-box"><div class="price">₹130 / 220</div></div></div>
+        <div class="card"><div class="card-l"><span class="dot dnv"></span><div><div class="card-name">Kadak Chicken</div></div></div><div class="price-box"><div class="price">₹130 / 220</div></div></div>
+        <div class="card"><div class="card-l"><span class="dot dnv"></span><div><div class="card-name">Drum Sticks (2 Pcs)</div></div></div><div class="price-box"><div class="price">₹120</div></div></div>
+        <div class="card"><div class="card-l"><span class="dot dnv"></span><div><div class="card-name">Lolly Pops</div></div></div><div class="price-box"><div class="price">₹200</div></div></div>
+        <div class="card"><div class="card-l"><span class="dot de"></span><div><div class="card-name">Omlet</div></div></div><div class="price-box"><div class="price">₹40</div></div></div>
+      </div>
+      <div class="special-card rv">
+        <div>
+          <div class="sc-label">🍗 Chef's Special</div>
+          <div class="sc-title">Chicken Curry — Fresh Cooking</div>
+        </div>
+        <div>
+          <div class="sc-price">₹170</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BIRYANI -->
+    <div class="panel" id="panel-biryani">
+      <div class="grid" style="margin-top:.75rem">
+        <div class="card"><div class="card-l"><span class="dot dnv"></span><div><div class="card-name">Mini Chicken Biryani</div></div></div><div class="price-box"><div class="price">₹130</div></div></div>
+        <div class="card"><div class="card-l"><span class="dot dnv"></span><div><div class="card-name">Mini Chicken Fry Piece Biryani</div></div></div><div class="price-box"><div class="price">₹150</div></div></div>
+        <div class="card"><div class="card-l"><span class="dot dnv"></span><div><div class="card-name">Regular Chicken Biryani</div></div></div><div class="price-box"><div class="price">₹230</div></div></div>
+        <div class="card" style="border-color:rgba(212,172,13,.4)"><div class="card-l"><span class="dot dnv"></span><div>
+          <div class="card-name">Chicken Family Pack</div>
+          <div class="card-sub">For gatherings & parties</div>
+        </div></div><div class="price-box"><div class="price">₹470</div></div></div>
+        <div class="card"><div class="card-l"><span class="dot dnv"></span><div><div class="card-name">Bagara Chicken Rice</div></div></div><div class="price-box"><div class="price">₹130</div></div></div>
+      </div>
+      <div class="divider rv"><span>Also Available</span></div>
+      <div style="font-size:.88rem;color:var(--text2);line-height:1.8;padding:1rem;background:var(--g2);border:1px solid var(--border);border-radius:var(--r)">
+        🎉 <strong style="color:var(--gold2)">Party &amp; Bulk Biryani Orders</strong> — We undertake all party orders in bulk quantity. Call us to pre-order your Chicken Dum Biryani for events, functions, and celebrations.<br>
+        <div style="margin-top:.75rem;display:flex;gap:.75rem;flex-wrap:wrap">
+          <a href="tel:08522027670" style="background:var(--gold);color:var(--g2);padding:.45rem 1.1rem;border-radius:8px;font-size:.83rem;font-weight:800;text-decoration:none">📞 8522027670</a>
+          <a href="tel:09700937006" style="background:var(--gold);color:var(--g2);padding:.45rem 1.1rem;border-radius:8px;font-size:.83rem;font-weight:800;text-decoration:none">📞 9700937006</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <p class="s-lbl rv">Why Choose Us</p>
+    <h2 class="s-title rv">Crafted with <em>Care</em></h2>
+    <p class="s-desc rv">At Nakshatra Food Court, every plate is prepared fresh, served hot, and priced for everyone.</p>
+    <div class="feat-grid">
+      <div class="feat rv d1"><div class="feat-icon">🫕</div><div class="feat-name">Dum Biryani</div><div class="feat-text">Aromatic Chicken Dum Biryani from mini to family packs — perfect for any occasion.</div></div>
+      <div class="feat rv d2"><div class="feat-icon">🍜</div><div class="feat-name">Rice & Noodles</div><div class="feat-text">10+ varieties of fried rice and noodles — veg, egg, chicken, schezwan and double combos.</div></div>
+      <div class="feat rv d3"><div class="feat-icon">🔥</div><div class="feat-name">Hot Starters</div><div class="feat-text">Kadak Chicken, Drum Sticks, Lolly Pops and more starters sizzled fresh every order.</div></div>
+      <div class="feat rv d4"><div class="feat-icon">🎉</div><div class="feat-name">Party Orders</div><div class="feat-text">We undertake all types of party and bulk food orders. Call us to plan your feast.</div></div>
+      <div class="feat rv d5"><div class="feat-icon">🛵</div><div class="feat-name">Fast Delivery</div><div class="feat-text">Order online via Swiggy or call directly. Fresh food delivered to your doorstep.</div></div>
+      <!--<div class="feat rv d6"><div class="feat-icon">💰</div><div class="feat-name">₹1 Onwards</div><div class="feat-text">Affordable prices for everyone — quality food from ₹1 to ₹200 per person.</div></div>-->
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="s-lbl rv">Visit Us</p>
+    <h2 class="s-title rv">Find <em>Nakshatra</em></h2>
+    <p class="s-desc rv">Located near SBI Bank in Pirzadiguda — easy to find, easier to love.</p>
+    <div class="contact-grid">
+      <div>
+        <div class="ci rv d1"><div class="ci-lbl">Address</div><div class="ci-val">H.No. 2-33, Near SBI Bank, Pirzadiguda,<br>Mallikarjuna Nagar, Boduppal,<br>Hyderabad – 500092</div></div>
+        <div class="ci rv d2"><div class="ci-lbl">Phone</div><div class="ci-val"><a href="tel:09700937006">097009 37006</a></div></div>
+        <div class="ci rv d3"><div class="ci-lbl">Party Orders</div><div class="ci-val"><a href="tel:08522027670">8522027670</a> / <a href="tel:09700937006">9700937006</a></div></div>
+        <div class="ci rv d4"><div class="ci-lbl">Hours</div><div class="ci-val">Open Daily · Closes 11:00 PM</div></div>
+        <div class="ci rv d5"><div class="ci-lbl">Services</div><div class="ci-val">Dine-In · Takeaway · Delivery</div></div>
+        <div class="ci rv d6"><div class="ci-lbl">Order Online</div><div class="ci-val">Available on <strong>Swiggy</strong></div></div>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:.75rem" class="rv">
+          <a href="tel:09700937006" class="btn-gold" style="font-size:.88rem;padding:.8rem 1.75rem">📞 Call Now</a>
+          <a href="#menu" class="btn-outline" style="font-size:.88rem;padding:.8rem 1.75rem">View Menu</a>
+        </div>
+      </div>
+      <div class="map-box rv-r">
+        <iframe src="https://www.google.com/maps?q=H.No.2-33+near+SBI+Bank+Pirzadiguda+Mallikarjuna+Nagar+Boduppal+Hyderabad+500092&output=embed" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="foot-brand">Nakshatra Food Court<small>Chinese & Indian · Boduppal, Hyderabad</small></div>
+  </div>
+  <!--<div class="foot-links">
+    <a href="#menu">Menu</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>-->
+  <div class="foot-copy">© 2026 Nakshatra Food Court</div>
+</footer>
+
+<script>
+/* ─── STARS ─── */
+(function(){
+  const c=document.getElementById('stars');
+  for(let i=0;i<80;i++){
+    const s=document.createElement('div');
+    s.className='star';
+    const sz=Math.random()*2.5+1;
+    s.style.cssText=`width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;animation-delay:${Math.random()*5}s;animation-duration:${2+Math.random()*4}s`;
+    c.appendChild(s);
+  }
+})();
+
+/* ─── NAV ─── */
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>50));
+
+/* ─── MOBILE MENU ─── */
+function toggleMob(){
+  document.getElementById('hbg').classList.toggle('open');
+  document.getElementById('mobMenu').classList.toggle('open');
+  document.body.style.overflow=document.getElementById('mobMenu').classList.contains('open')?'hidden':'';
+}
+
+/* ─── TABS ─── */
+function showTab(id,btn){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.getElementById('panel-'+id).classList.add('on');
+  btn.classList.add('on');
+}
+
+/* ─── SMOOTH SCROLL ─── */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}
+  });
+});
+
+/* ─── REVEAL ─── */
+const ro=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.08});
+document.querySelectorAll('.rv,.rv-l,.rv-r,.rv-s').forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>
